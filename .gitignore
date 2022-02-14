@@ -32,3 +32,8 @@
 *.app
 /.vs/sadx-style-water/v17
 /.vs
+/bin
+/sadx-style-water/.vs/sadx-style-water/v17
+/sadx-style-water/bin
+/sadx-style-water/Debug
+/sadx-style-water/Release
