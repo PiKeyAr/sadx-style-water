@@ -10,7 +10,6 @@ bool SADXWater_Past;
 
 // Pointers and functions
 DataPointer(int, FramerateSetting, 0x389D7DC); // No name in symbols
-FunctionPointer(Sint8, SeqGetTime, (), 0x412C10); // Get time of day
 
 void EmeraldCoastWater_Init();
 void EmeraldCoastWater_OnFrame();
@@ -224,7 +223,10 @@ extern "C"
 		if (SADXWater_EmeraldCoast)
 			EmeraldCoastWater_Init();
 		if (SADXWater_StationSquare)
+		{
+			WriteData((float*)0x006313F1, -1500.012f); // For DC Conversion
 			WriteJump(StationSquare_OceanDraw, StationSquare_OceanDraw_SADXStyle);
+		}
 		if (SADXWater_MysticRuins)
 		{
 			WriteJump(MysticRuins_OceanDraw, MysticRuins_OceanDraw_SADXStyle);
@@ -237,14 +239,17 @@ extern "C"
 			WriteJump(Zero_OceanDraw, EggCarrier_OceanDraw_SADXStyle);
 		}
 		if (SADXWater_Past)
+		{
+			WriteData((float*)0x00542A38, -2800.012f); // For DC Conversion
 			WriteJump((void*)0x542850, Past_OceanDraw_SADXStyle);
+		}
 	}
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		if (ssGameMode == 16)
 			return;
-		if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
+		if ((FramerateSetting < 2 && gu32GameCnt % 4 == 0) || (FramerateSetting == 2 && gu32GameCnt % 2 == 0) || FramerateSetting > 2)
 		{
 			SADXStyleWaterAnimationFrame++;
 			if (SADXStyleWaterAnimationFrame > 14)

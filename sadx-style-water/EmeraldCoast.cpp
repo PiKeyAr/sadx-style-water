@@ -11,7 +11,6 @@ NJS_OBJECT* HighPolyOcean_Static = nullptr;
 
 DataPointer(float, EC1OceanYShift, 0x010C85A8);
 DataPointer(int, EffectActive, 0x3C5E4B0);
-DataPointer(int, loop_count, 0x3B1117C); // MissedFrames
 
 DataArray(NJS_TEX, DynamicUVsDefault, 0x10BB000, 1300); // Dynamic ocean default UVs
 NJS_TEX DynamicUVsOriginal[1300];
