@@ -229,11 +229,13 @@ extern "C"
 		}
 		if (SADXWater_MysticRuins)
 		{
+			WriteData((float*)0x005326A2, -4174.012f); // For DC Conversion
 			WriteJump(MysticRuins_OceanDraw, MysticRuins_OceanDraw_SADXStyle);
 			WriteJump(EggHornet_OceanDraw, MysticRuins_OceanDraw_SADXStyle);
 		}
 		if (SADXWater_EggCarrier)
 		{
+			WriteData((float*)0x0051C6AA, -4000.012f); // For DC Conversion
 			WriteJump(EggCarrier_OceanDraw, EggCarrier_OceanDraw_SADXStyle);
 			WriteJump(E101Mk2_OceanDraw, EggCarrier_OceanDraw_SADXStyle);
 			WriteJump(Zero_OceanDraw, EggCarrier_OceanDraw_SADXStyle);
@@ -241,7 +243,7 @@ extern "C"
 		if (SADXWater_Past)
 		{
 			WriteData((float*)0x00542A38, -2800.012f); // For DC Conversion
-			WriteJump((void*)0x542850, Past_OceanDraw_SADXStyle);
+			WriteJump((void*)0x00542850, Past_OceanDraw_SADXStyle);
 		}
 	}
 
